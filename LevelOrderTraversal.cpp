@@ -13,6 +13,34 @@ struct node{
     }
 };
 
+void level_order_vector(node* root, vector<vector<int>> &v){
+    if(root == NULL){
+        return;
+    }
+    queue<node*> q;
+    q.push(root);
+    q.push(NULL);
+    vector<int> x;
+    while(!q.empty()){
+        node* n = q.front();
+        q.pop();
+        if(n == NULL){
+            // To check that we are at the end of the level
+            if(!q.empty()){
+                q.push(NULL);       // Marker for next line
+                // cout << endl;       // Creating a separator
+            }
+            v.push_back(x);
+            x.clear();
+        }else{
+            // cout << n->data << " ";
+            x.push_back(n->data);
+            if(n->left!=NULL) q.push(n->left);
+            if(n->right!=NULL) q.push(n->right);
+        }        
+    }
+}
+
 void level_order(node* root){
     if(root == NULL) return;
     queue<node*> q;
