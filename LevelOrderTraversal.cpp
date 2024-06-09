@@ -33,7 +33,8 @@ void level_order_vector(node* root, vector<vector<int>> &v){
             v.push_back(x);
             x.clear();
         }else{
-            cout << n->data << " ";
+            // cout << n->data << " ";
+            x.push_back(n->data);
             if(n->left!=NULL) q.push(n->left);
             if(n->right!=NULL) q.push(n->right);
         }        
