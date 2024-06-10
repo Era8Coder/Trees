@@ -28,8 +28,9 @@ int search(vector<int> &inorder, int start, int end, int curr){
 }
 
 node* build_tree(vector<int> &preorder, vector<int> &inorder, int start, int end){
+    int p = preorder.size();
     static int idx = 0;             // Globally Initialising the Variable :)
-    if(start > end){                // That means we had crossed the Vector
+    if(p >= n || start > end){                // That means we had crossed the Vector
         return NULL;
     }
     
