@@ -19,7 +19,7 @@ struct node{
 };  
 
 int search(vector<int> &inorder, int start, int end, int curr){
-    for(int i=start; i<=end; i++){
+    for(int i=start; i<=end; i++){                // We can use MAP to reduce the Time Complexity :)
         if(inorder[i] == curr){
             return i;
         }
